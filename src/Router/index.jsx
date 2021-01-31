@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Main from "../Page/Main";
+import MainApp from "../Page/Main";
 import Artikel from "../Page/Artikel";
 import TodoList from "../Page/Todolist";
 import User from "../Page/User";
@@ -19,7 +19,7 @@ export default function Routes() {
           <User />
         </Route>
         <Route path="/">
-          <Main />
+          <MainApp />
         </Route>
       </Switch>
     </Router>
