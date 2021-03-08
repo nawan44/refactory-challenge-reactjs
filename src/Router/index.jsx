@@ -1,16 +1,12 @@
 import React from "react";
-import { BrowserRouter,Route, Switch } from "react-router-dom";
-import MainApp from "../Page/Main";
-import Artikel from "../Page/Artikel";
-import User from "../Page/User";
-import TodoList from "../Page/Todolist"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MainApp from "../Main";
 
 export default function Routes() {
   return (
-
     <BrowserRouter>
       <Switch>
-        <Route path="/artikel">
+        {/* <Route path="/artikel">
           <Artikel />
         </Route>
         <Route path="/to-do-list">
@@ -18,10 +14,10 @@ export default function Routes() {
         </Route>
         <Route path="/user">
           <User />
-        </Route>
-        {/* <Route path="/">
-          <MainApp />
         </Route> */}
+        <Route path="/">
+          <MainApp />{" "}
+        </Route>
       </Switch>
     </BrowserRouter>
   );
