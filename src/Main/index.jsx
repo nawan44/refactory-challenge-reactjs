@@ -5,15 +5,9 @@ import Home from "../Page/Home";
 
 const MainApp = () => {
   return (
-    <Router>
-      <Layout>
-        <Switch>
-          <Route path="/" exact>
-            <Home />{" "}
-          </Route>
-        </Switch>
-      </Layout>
-    </Router>
+    <div>
+      <Layout/>
+    </div>
   );
 };
 export default MainApp;
