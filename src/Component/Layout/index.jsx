@@ -1,8 +1,3 @@
-// import Footer from "./Footer";
-// import Header from "./Header";
-// import Navbar from "./Navbar";
-
-// export default { Footer, Header, Navbar };
 import clsx from 'clsx';
 import {
   AppBar,
@@ -19,10 +14,9 @@ import {
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { ChevronLeft, ChevronRight, Home, Menu } from "@material-ui/icons";
-// import clsx from "clsx";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-
+import Footer from './Footer'
 const drawerWidth = 240;
 
 const dataMenu = [{ path: "/", text: "Home", icon: <Home /> }];
@@ -122,57 +116,44 @@ function Layout(props) {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
+            className={clsx(classes.menuButton, open && classes.hide)}
           >
             <Menu />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            {location.pathname === "/" ? "Reader" : "set dlu cuy"}
-          </Typography>
+          <Typography className={classes.titleHead} variant="h6" noWrap>
+Refactory Challenge ReactJs         </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
+        <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={open}
+        onClick={handleDrawerClose}
         classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
+          paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.toolbar}>
+        <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <ChevronRight /> : <ChevronLeft />}
+            {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {dataMenu.map((row, index) => {
-            return (
-              <NavLink to={row.path} key={index} className={classes.navlink}>
-                <ListItem
-                  button
-                  key={index}
-                  selected={location.pathname === row.path}
-                >
-                  <ListItemIcon>{row.icon}</ListItemIcon>
-                  <ListItemText primary={row.text} />
-                </ListItem>
-              </NavLink>
-            );
-          })}
+                    <ListItem>
+                      <ListItemIcon className={classes.icon}>
+                      </ListItemIcon>
+                      <ListItemText />
+                    </ListItem>       
         </List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
+        <Footer />
+
       </main>
     </div>
   );
