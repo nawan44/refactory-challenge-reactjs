@@ -1,29 +1,37 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import React from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 
-import {Home, Person,  Assignment, ChevronLeft, ChevronRight, Menu} from '@material-ui/icons';
+import {
+  Home,
+  Person,
+  Assignment,
+  ChevronLeft,
+  ChevronRight,
+  Menu,
+} from "@material-ui/icons";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -31,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -40,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -50,32 +58,54 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
   },
 }));
+const dataMenu = [
+  {
+    path: ["/", "/dashboard"],
+    text: "Home",
+    icon: <Home />,
+    // role: "admin"
+  },
+  {
+    path: "/user",
+    text: "User",
+    // role: ["prod", "admin"],
+    icon: <Person />,
+  },
 
-export default function PersistentDrawerLeft() {
+  {
+    path: "/article",
+    text: "Article",
+    // role: ["supp", "admin"],
+    icon: <Assignment />,
+  },
+];
+export default function PersistentDrawerLeft(props) {
+  let location = useLocation();
+
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -108,7 +138,8 @@ export default function PersistentDrawerLeft() {
             <Menu />
           </IconButton>
           <Typography variant="h6" noWrap>
-Reafctory ReactJs Challenge          </Typography>
+            Refactory ReactJs Challenge{" "}
+          </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -116,23 +147,46 @@ Reafctory ReactJs Challenge          </Typography>
         variant="persistent"
         anchor="left"
         open={open}
+        onClick={handleDrawerClose}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
+            {theme.direction === "ltr" ? <ChevronLeft /> : <ChevronRight />}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {['Home', 'User', 'Article',].map((text, index) => (
+          {/* {['Home', 'User', 'Article',].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 3 === 0 ? <Home /> : <Person /> }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
+
+          {dataMenu.map((row, index, r) => {
+            return (
+              <NavLink
+                to={row.path}
+                key={index}
+                className={classes.sidebarTitle}
+              >
+                <ListItem
+                  button
+                  key={index}
+                  className={classes.listItem}
+                  selected={location.pathname === row.path}
+                >
+                  <ListItemIcon className={classes.icon}>
+                    {row.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={row.text} />
+                </ListItem>
+              </NavLink>
+            );
+          })}
         </List>
         <Divider />
         {/* <List>
@@ -144,16 +198,9 @@ Reafctory ReactJs Challenge          </Typography>
           ))}
         </List> */}
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          REFACTORY CHALLENGE REACTJS
-        </Typography>
-       
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        {props.children}
       </main>
     </div>
   );
