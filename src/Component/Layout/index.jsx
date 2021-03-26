@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const dataMenu = [
   {
-    path: ["/", "/dashboard"],
+    path: "/",
     text: "Home",
     icon: <Home />,
     // role: "admin"
