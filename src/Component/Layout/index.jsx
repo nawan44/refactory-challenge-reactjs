@@ -18,7 +18,7 @@ import {
   ChevronRight,
   Menu,
 } from "@material-ui/icons";
-import { NavLink, useLocation, useHistory } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -67,9 +67,11 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     width:"100%",
-    float:"left",
+    height:"100px",
+    // float:"left",
     flexGrow: 1,
-    padding: theme.spacing(3),
+    backgroundColor:"red",
+    margin: "70px 0 0 0 ",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -107,15 +109,12 @@ const dataMenu = [
 ];
 export default function PersistentDrawerLeft(props) {
   let location = useLocation();
-
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -161,13 +160,6 @@ export default function PersistentDrawerLeft(props) {
         </div>
         <Divider />
         <List>
-          {/* {['Home', 'User', 'Article',].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 3 === 0 ? <Home /> : <Person /> }</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
-
           {dataMenu.map((row, index, r) => {
             return (
               <NavLink
@@ -191,14 +183,7 @@ export default function PersistentDrawerLeft(props) {
           })}
         </List>
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
+
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

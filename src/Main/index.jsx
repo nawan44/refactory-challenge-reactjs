@@ -50,9 +50,11 @@ const MainApp = () => {
             </Route>
             <Route path="/user" exact>
               <User />
+              usserr
             </Route>
             <Route path="/article" exact>
               <Artikel />
+              ARTIKWEL
             </Route>
           </Switch>
         </Layout>

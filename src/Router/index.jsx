@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainApp from "../Main";
+// import Artikel from "../Page/Artikel";
+// import User from "../Page/User";
 
 export default function Routes() {
   return (
@@ -11,10 +13,10 @@ export default function Routes() {
         </Route>
         <Route path="/to-do-list">
           <TodoList />
-        </Route>
-        <Route path="/user">
+        </Route>*/}
+        {/* <Route path="/user">
           <User />
-        </Route> */}
+        </Route>  */}
         <Route path="/">
           <MainApp />{" "}
         </Route>
