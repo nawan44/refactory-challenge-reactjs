@@ -1,5 +1,5 @@
 import React from "react";
-import  Layout  from "../Component";
+import { Layout } from "../Component";
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,11 +50,9 @@ const MainApp = () => {
             </Route>
             <Route path="/user" exact>
               <User />
-              usserr
             </Route>
             <Route path="/article" exact>
               <Artikel />
-              ARTIKWEL
             </Route>
           </Switch>
         </Layout>

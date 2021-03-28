@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     float: "left",
     textAlign: "center",
     margin: "0 auto",
-    marginTop: "10px",
+    marginTop: "50px",
     padding : "10px 0"
   },
 });

@@ -11,7 +11,6 @@ import React from "react";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    height: "400px",
     margin: "100px 0 0 0 ",
     backgroundColor: "red",
   },

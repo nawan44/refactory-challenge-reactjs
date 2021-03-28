@@ -9,7 +9,7 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-// import Footer from "../Layout/Footer"
+import Footer from "../Layout/Footer"
 import {
   Home,
   Person,
@@ -70,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
     height:"100px",
     // float:"left",
     flexGrow: 1,
-    backgroundColor:"red",
     margin: "70px 0 0 0 ",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -188,7 +187,7 @@ export default function PersistentDrawerLeft(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
-
+<Footer/>
       </main>
 
     </div>
