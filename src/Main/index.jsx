@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout } from "../Component";
+import  Layout  from "../Component";
 import {
   BrowserRouter as Router,
   Switch,
