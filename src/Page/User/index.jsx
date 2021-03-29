@@ -73,11 +73,6 @@ export default function User() {
             </TableRow>
               ))}
           </TableBody>
-          <ul>
-        
-         
-     
-        </ul>
         </Table>
       </Paper>
     </div>
