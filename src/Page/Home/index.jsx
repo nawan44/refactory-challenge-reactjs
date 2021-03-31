@@ -4,7 +4,7 @@ import {
   Table,
   Paper,
   TableCell,
-  TableRow, TableBody
+  TableRow, TableBody, FormControlLabel, Switch, 
 } from "@material-ui/core";
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -33,6 +33,12 @@ const useStyles = makeStyles({
 export default function Home() {
   const classes = useStyles();
   const [user, setUser] = useState([]);
+  const [state, setState] = React.useState({
+    checkedB: true,
+  });
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 // console.log(user)
   useEffect(() => {
     Axios.get("https://jsonplaceholder.typicode.com/todos").then(res => {
@@ -58,7 +64,20 @@ export default function Home() {
               <TableCell>{item.userId}</TableCell>
               <TableCell>{item.id}</TableCell>
               <TableCell>{item.title}</TableCell>
-              <TableCell>{item.completed}</TableCell>
+              <TableCell>
+              <FormControlLabel
+        control={
+          <Switch
+            checked={item.completed}
+            onChange={handleChange}
+            name="checkedB"
+            value={state.checkedB}
+            color="primary"
+          />
+        }
+        label="Completed"
+      />
+              </TableCell>
             </TableRow>
               ))}
           </TableBody>
