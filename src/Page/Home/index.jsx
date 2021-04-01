@@ -4,7 +4,7 @@ import {
   Table,
   Paper,
   TableCell,
-  TableRow, TableBody, FormControlLabel, Switch, 
+  TableRow, TableBody, FormControlLabel, Switch, Button
 } from "@material-ui/core";
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -49,6 +49,8 @@ export default function Home() {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <h3 className={classes.title}>TODO LIST</h3>
+        <Button  color="primary"className={classes.title} href="input-todo-list">add TODO LIST</Button>
+
         <Table>
           <TableHead>
             <TableRow>

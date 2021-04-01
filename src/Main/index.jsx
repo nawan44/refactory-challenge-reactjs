@@ -11,7 +11,7 @@ import { IconButton } from "@material-ui/core";
 import Home from "../Page/Home";
 import Artikel from "../Page/Artikel";
 import User from "../Page/User";
-
+import InputTodoList from "../Page/InputTodoList"
 const MainApp = () => {
   let history = useHistory();
 
@@ -42,9 +42,13 @@ const MainApp = () => {
       <Router>
         <Layout>
           <Switch>
-            <Route path="/" exact>
+          <Route path="/" exact>
               <Home />
             </Route>
+            <Route path="/input-todo-list" exact>
+              <InputTodoList />
+            </Route>
+            
             <Route path="/dashboard" exact>
               <Home />
             </Route>
