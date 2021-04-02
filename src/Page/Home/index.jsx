@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 
 export default function Home() {
   const classes = useStyles();
-  const [user, setUser] = useState([]);
+  const [todo, setTodo] = useState([]);
   const [state, setState] = React.useState({
     checkedB: true,
   });
@@ -42,7 +42,7 @@ export default function Home() {
 // console.log(user)
   useEffect(() => {
     Axios.get("https://jsonplaceholder.typicode.com/todos").then(res => {
-      setUser(res.data);
+      setTodo(res.data);
     });
   });
   return (
@@ -61,7 +61,7 @@ export default function Home() {
             </TableRow>
           </TableHead>
           <TableBody>
-          {user.map(item => (
+          {todo.map(item => (
             <TableRow>
               <TableCell>{item.userId}</TableCell>
               <TableCell>{item.id}</TableCell>
