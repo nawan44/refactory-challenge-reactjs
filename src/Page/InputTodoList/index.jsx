@@ -17,6 +17,9 @@ const useStyles = makeStyles({
     textAlign: "center",
     margin: "0 auto",
     width: "800px",
+    padding:"20px",
+    marginTop:"70px",
+    marginBottom:"50px"
   },
   title: {
     fontSize: "20px",
@@ -30,7 +33,20 @@ const useStyles = makeStyles({
     margin: "10px"
   },
   button:{
-    width:"90%"
+    width:"90%",
+    backgroundColor:"#3F51B5",
+    margin: "70px 0 30px 0",
+    color:"#fff",
+    padding:"10px 0"
+  },
+  status:{
+    textAlign:"left",
+    margin : "20px 0 0 40px"
+  },
+  switch:{
+    float:"left",
+    margin : "10px 0 0 40px"
+
   }
 });
 export default function InputTodoList() {
@@ -44,7 +60,7 @@ export default function InputTodoList() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <h3 className={classes.title}>TODO LIST</h3>
+        <h3 className={classes.title}>INPUT TODO LIST</h3>
         <TextField
           id="user-id"
           className={classes.textField}
@@ -63,10 +79,12 @@ export default function InputTodoList() {
           label="Title Todolist"
           variant="outlined"
         />
-        <h3>Status :</h3>
+        <h3 className={classes.status}>Status :</h3>
         <FormControlLabel
+            className={classes.switch}
           control={
             <Switch
+
               checked={state.checkedB}
               onChange={handleChange}
               name="checkedB"
@@ -76,7 +94,7 @@ export default function InputTodoList() {
           }
           label="Completed"
         />
-        <Button className={classes.button} color="primary">Input Data</Button>
+        <Button className={classes.button} >Input Data</Button>
       </Paper>
     </div>
   );
