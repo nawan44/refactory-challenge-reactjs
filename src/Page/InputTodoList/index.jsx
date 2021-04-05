@@ -75,7 +75,7 @@ export default function InputTodoList() {
       let form = { ...state };
       // console.log("form", form);
       const response = await fetch(
-        process.env.REACT_APP_URL + "/api/supp/data",
+        process.env.REACT_APP_URL,
         {
           method: "POST",
           // headers: {

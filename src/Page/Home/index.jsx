@@ -25,6 +25,13 @@ const useStyles = makeStyles({
     fontSize:"20px",
     padding:"20px 0"
   },
+  button:{
+    width:"200px",
+    backgroundColor:"#3F51B5",
+    margin: "70px 0 30px 0",
+    color:"#fff",
+    padding:"10px 0"
+  },
   head:{
     fontSize:"16px",
   }
@@ -49,7 +56,7 @@ export default function Home() {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <h3 className={classes.title}>TODO LIST</h3>
-        <Button  color="primary"className={classes.title} href="input-todo-list">add TODO LIST</Button>
+        <Button  color="primary"className={classes.button} href="input-todo-list">add TODO LIST</Button>
 
         <Table>
           <TableHead>
