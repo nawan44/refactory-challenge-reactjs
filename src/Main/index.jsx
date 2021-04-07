@@ -1,4 +1,7 @@
 import React from "react";
+import { makeStyles } from "@material-ui/styles";
+
+
 import { Layout } from "../Component";
 import {
   BrowserRouter as Router,
@@ -12,8 +15,32 @@ import Home from "../Page/Home";
 import Artikel from "../Page/Artikel";
 import User from "../Page/User";
 import InputTodoList from "../Page/InputTodoList"
+const useStyles = makeStyles((theme) => ({
+  logout: {
+    width: 30,
+    height: 30,
+    position: "fixed",
+    margin: "10px 50px 10px 0",
+
+    "&:hover": {
+      background: "#fff",
+      color: "#3F51B4",
+      "& .MuiSvgIcon-root": {
+        color: "#3F51B4",
+      },
+    },
+    "&:active": {
+      background: "#fff",
+      color: "#3F51B4",
+      "& .MuiSvgIcon-root": {
+        color: "#3F51B4",
+      },
+    },
+  },
+}));
 const MainApp = () => {
   let history = useHistory();
+  const classes = useStyles();
 
   return (
     <>
@@ -30,13 +57,9 @@ const MainApp = () => {
           history.push("login");
         }}
       >
-        <ExitToApp
-          style={{
-            position: "fixed",
-            margin: "10px 20px 10px 10px",
-            float: "left",
-          }}
-        />
+              <ExitToApp className={classes.logout} />
+
+
       </IconButton>
 
       <Router>
