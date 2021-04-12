@@ -1,5 +1,4 @@
 import {
-  makeStyles,
   TableHead,
   Table,
   Paper,
@@ -9,36 +8,9 @@ import {
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const useStyles = makeStyles({
-  root: {
-    width: "100%",
-    margin: "100px 0 0 0 ",
-    textAlign:"center",
-    margin:"0 auto"
-  },
-  paper:{
-    textAlign:"center",
-    margin:"0 auto",
-    width:"800px",
-  },
-  title: {
-    fontSize:"20px",
-    padding:"20px 0"
-  },
-  button:{
-    width:"200px",
-    backgroundColor:"#3F51B5",
-    margin: "70px 0 30px 0",
-    color:"#fff",
-    padding:"10px 0"
-  },
-  head:{
-    fontSize:"16px",
-  }
-});
+
 
 export default function Home() {
-  const classes = useStyles();
   const [todo, setTodo] = useState([]);
   const [state, setState] = React.useState({
     checkedB: true,
@@ -53,18 +25,18 @@ export default function Home() {
     });
   });
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <h3 className={classes.title}>TODO LIST</h3>
-        <Button  color="primary"className={classes.button} href="input-todo-list">add TODO LIST</Button>
+    <div className="root">
+      <Paper className="paper">
+        <h3 className="title">TODO LIST</h3>
+        <Button  color="primary"className="button" href="input-todo-list">add TODO LIST</Button>
 
         <Table>
           <TableHead>
             <TableRow>
-            <TableCell  className={classes.head}>User Id</TableCell>           
-              <TableCell  className={classes.head}>Id</TableCell>
-              <TableCell  className={classes.head}>Title</TableCell>
-              <TableCell  className={classes.head}>Completed</TableCell>   
+            <TableCell  className="head">User Id</TableCell>           
+              <TableCell  className="head">Id</TableCell>
+              <TableCell  className="head">Title</TableCell>
+              <TableCell  className="head">Completed</TableCell>   
             </TableRow>
           </TableHead>
           <TableBody>

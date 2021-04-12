@@ -14,7 +14,11 @@ import { IconButton } from "@material-ui/core";
 import Home from "../Page/Home";
 import Artikel from "../Page/Artikel";
 import User from "../Page/User";
-import InputTodoList from "../Page/InputTodoList"
+import InputTodoList from "../Page/InputTodoList";
+import { StylesProvider } from "@material-ui/core/styles";
+
+import "../Assets/styles/pages.css";
+
 const useStyles = makeStyles((theme) => ({
   logout: {
     width: 30,
@@ -63,6 +67,8 @@ const MainApp = () => {
       </IconButton>
 
       <Router>
+      <StylesProvider injectFirst>
+
         <Layout>
           <Switch>
           <Route path="/" exact>
@@ -83,6 +89,8 @@ const MainApp = () => {
             </Route>
           </Switch>
         </Layout>
+        </StylesProvider>
+
       </Router>
     </>
   );
