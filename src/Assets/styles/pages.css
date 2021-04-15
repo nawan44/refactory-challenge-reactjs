@@ -1,3 +1,4 @@
+/* HOME */
 .root {
   width: 100%;
   margin: 100px 0 0 0;
@@ -37,4 +38,39 @@
 .switch {
   float: left;
   margin: 10px 0 0 40px;
+}
+
+
+/* ARTICLE */
+
+.rootArticle {
+  width: 700;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.cardArea {
+  /* backgroundColor:red */
+  height: 300px;
+}
+.titleArticle {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 5px 0 ;
+}
+.cardContent {
+  width: 100%;
+}
+.cardMedia {
+  float: left;
+  width: 30%;
+}
+.cardDesc {
+  float: left;
+  width: 70%;
+  font-size: 16px;
+  padding: 0 10px;
+  text-align: left;
 }
