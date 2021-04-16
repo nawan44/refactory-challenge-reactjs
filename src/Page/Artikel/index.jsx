@@ -1,9 +1,14 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import {Card, CardActionArea, CardActions,  CardContent,CardMedia, Button } from "@material-ui/core";
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+} from "@material-ui/core";
 import Image1 from "../../Assets/Image/img1.jpg";
-
-
 
 export default function ImgMediaCard() {
   const [article, setArticle] = useState([]);

@@ -1,5 +1,4 @@
 import {
-  makeStyles,
   TableHead,
   Table,
   Paper,
@@ -9,30 +8,8 @@ import {
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const useStyles = makeStyles({
-  root: {
-    width: "100%",
-    margin: "100px 0 0 0 ",
-    // backgroundColor: "red",
-    textAlign:"center",
-    margin:"0 auto"
-  },
-  paper:{
-    textAlign:"center",
-    margin:"0 auto",
-    width:"800px",
-  },
-  title: {
-    fontSize:"20px",
-    padding:"20px 0"
-  },
-  head:{
-    fontSize:"16px",
-  }
-});
 
 export default function User() {
-  const classes = useStyles();
   const [user, setUser] = useState([]);
 // console.log(user)
   useEffect(() => {
@@ -41,21 +18,21 @@ export default function User() {
     });
   });
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <h3 className={classes.title}>DATA USER</h3>
+    <div className="root">
+      <Paper className="paper">
+        <h3 className="title">DATA USER</h3>
         <Table>
           <TableHead>
             <TableRow>
-            <TableCell  className={classes.head}>ID</TableCell>
+            <TableCell  className="head">ID</TableCell>
               
-              <TableCell  className={classes.head}>Name</TableCell>
-              <TableCell  className={classes.head}>Username</TableCell>
-              <TableCell  className={classes.head}>Email</TableCell>
-              <TableCell  className={classes.head}>Address</TableCell>
-              <TableCell  className={classes.head}>Phone</TableCell>
-              {/* <TableCell  className={classes.head}>Website</TableCell> */}
-              {/* <TableCell  className={classes.head}>Company</TableCell> */}
+              <TableCell  className="head">Name</TableCell>
+              <TableCell  className="head">Username</TableCell>
+              <TableCell  className="head">Email</TableCell>
+              <TableCell  className="head">Address</TableCell>
+              <TableCell  className="head">Phone</TableCell>
+              {/* <TableCell  className="head">Website</TableCell> */}
+              {/* <TableCell  className="head">Company</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
