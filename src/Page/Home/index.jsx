@@ -42,11 +42,12 @@ export default function Home() {
           <TableBody>
           {todo.map(item => (
             <TableRow>
-              <TableCell>{item.userId}</TableCell>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.title}</TableCell>
-              <TableCell>
+              <TableCell className="list" >{item.userId}</TableCell>
+              <TableCell className="list">{item.id}</TableCell>
+              <TableCell className="list">{item.title}</TableCell>
+              <TableCell >
               <FormControlLabel
+              
         control={
           <Switch
             checked={item.completed}
