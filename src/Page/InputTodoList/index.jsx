@@ -88,18 +88,20 @@ export default function InputTodoList() {
         />
         <h3 className="status">Status :</h3>
         <FormControlLabel
-             className="switch"
+        className="sss"
+
+        // style={{backgroundColor:"red"}}
           control={
             <Switch
+            className="aka"
 
               checked={state.checkedB}
               onChange={handleChangeCompleted}
               name="checkedB"
               value={completed.checkedB}
-              color="primary"
             />
           }
-          label="Completed"
+          label="Kamu"        
         />
         <Button type="submit" className="button" >Input Data</Button>
      </form>

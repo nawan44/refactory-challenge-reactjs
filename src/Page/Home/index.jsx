@@ -59,7 +59,7 @@ export default function Home() {
                         name="checkedB"
                       />
                     }
-                    label="Finish"
+                    label="A"
                   />
                 </TableCell>
               </TableRow>
